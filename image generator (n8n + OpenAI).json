@@ -1,0 +1,73 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        0,
+        0
+      ],
+      "id": "48a8effa-87a8-490b-a375-643f902e779c",
+      "name": "When chat message received",
+      "webhookId": "850aed00-5d84-46f6-8343-d6c6955fb000"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "modelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-image-1-mini"
+        },
+        "prompt": "=Generate a high-quality image of: {{ $json.chatInput }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        224,
+        0
+      ],
+      "id": "e4bfbf65-442a-4022-bb85-f08c23731a6c",
+      "name": "Generate an image",
+      "credentials": {
+        "openAiApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Generate an image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "0dd052fe-450f-4a6b-9223-cfeb95d5af6b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1470f9ac02b73328a8b03f2f4bd8180bd583edb5afa4a2bea0898b2adafe1255"
+  },
+  "nodeGroups": [],
+  "id": "S6vo8IxVZ3xPtt1o",
+  "tags": []
+}
